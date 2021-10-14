@@ -17,10 +17,8 @@ namespace Word_Scramble
         // Constructors
         public Prompt()
         {
-            Original = "Word";
-            Hint1 = "Uh-oh! Someone forgot to add a prompt and hint. We added Word for you.";
-            Hint2 = "The answer is Word.";
-            Hint3 = "Did you know you can add three hints per prompt? have fun!";
+            Original = " ";
+            Hint1 = "Uh-oh! Someone forgot to add a prompt and hint.";
         }
        
         public Prompt(string original)

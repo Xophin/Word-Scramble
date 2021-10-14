@@ -12,11 +12,8 @@ namespace Word_Scramble
 {
     public partial class frmScrambleSolve : Form
     {
-        // Create the initial List of words.
-        List<String> lstDefaultList = new List<String>() { "Moon", "Soon", "Loom", "Craft", "Mine", "Town", "Cute", "Cozy", "Quail", "Quilt", "Lost", "Shoe" };
-        Prompt Moon = new Prompt("Moon", "Orbits the Earth");
-        Prompt Soon = new Prompt("Soon", "In or after a short time.");
-        Prompt Loom = new Prompt("Loom", "An apparatus for making fabric by weaving yarn or thread.");
+        // Default List!
+        List<Prompt> lstDefaultList = new List<Prompt>();
 
         Random random = new Random();
         String strOriginalWord = "";
@@ -28,7 +25,24 @@ namespace Word_Scramble
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+
+            // Create the initial List of words.
+            Prompt Moon = new Prompt("Moon", "Orbits the Earth");
+            Prompt Soon = new Prompt("Soon", "In or after a short time.", "If its followed by (TM) you know its not happening anytime ____.");
+            Prompt Loom = new Prompt("Loom", "An apparatus for making fabric by weaving yarn or thread.", "Weaver and their ____.");
+            Prompt Craft = new Prompt("Craft", "The act of creating something.");
+            Prompt Mine = new Prompt("Mine", "Digging in the ground for resources such as coal.", "It's not yours its ____.");
+            Prompt Town = new Prompt("Town", "Larger than a village, smaller than a city.", "Just a small ____ girl Livin' in a lonely world");
+            Prompt Cute = new Prompt("Cute", "attractive in a pretty or enduring way.", "As ____ as a kitten.");
+
+            // Add default prompts to default list
+            lstDefaultList.Add(Moon);
+            lstDefaultList.Add(Soon);
+            lstDefaultList.Add(Loom);
+            lstDefaultList.Add(Craft);
+            lstDefaultList.Add(Mine);
+            lstDefaultList.Add(Town);
+            lstDefaultList.Add(Cute);
         }
 
         private void btnStartScramble_Click(object sender, EventArgs e)
@@ -53,7 +67,7 @@ namespace Word_Scramble
                 // Pick a random word from the List
                 intSelectedWordIndex = random.Next(-1, intWordListLength);
 
-                strOriginalWord = lstDefaultList[intSelectedWordIndex];
+                strOriginalWord = lstDefaultList[intSelectedWordIndex].Original;
 
                 // Check string length
                 if(strOriginalWord.Length > 0)
