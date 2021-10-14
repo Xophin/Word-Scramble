@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prompt.cs" />
     <EmbeddedResource Include="ScrambleSolve.resx">
       <DependentUpon>ScrambleSolve.cs</DependentUpon>
     </EmbeddedResource>

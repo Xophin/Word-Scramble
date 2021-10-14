@@ -14,6 +14,10 @@ namespace Word_Scramble
     {
         // Create the initial List of words.
         List<String> lstDefaultList = new List<String>() { "Moon", "Soon", "Loom", "Craft", "Mine", "Town", "Cute", "Cozy", "Quail", "Quilt", "Lost", "Shoe" };
+        Prompt Moon = new Prompt("Moon", "Orbits the Earth");
+        Prompt Soon = new Prompt("Soon", "In or after a short time.");
+        Prompt Loom = new Prompt("Loom", "An apparatus for making fabric by weaving yarn or thread.");
+
         Random random = new Random();
         String strOriginalWord = "";
 
