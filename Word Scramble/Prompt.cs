@@ -23,29 +23,28 @@ namespace Word_Scramble
        
         public Prompt(string original)
         {
-            Original = original;
-            Hint1 = "Uh-oh! Someone forgot to add a hint.";
+            Original = original;;
         }
         
         public Prompt(string original, string hint1)
         {
             Original = original;
-            Hint1 = "First and final hint: " + hint1;
+            Hint1 = hint1;
         }
 
         public Prompt(string original, string hint1, string hint2)
         {
             Original = original;
-            Hint1 = "First Hint: " + hint1;
-            Hint2 = "Second and last Hint: " + hint2;
+            Hint1 = hint1;
+            Hint2 = hint2;
         }
 
         public Prompt(string original, string hint1, string hint2, string hint3)
         {
             Original = original;
-            Hint1 = "First Hint: " + hint1;
-            Hint2 = "Second: " + hint2;
-            Hint3 = "Third and final hint: " + hint3;
+            Hint1 = hint1;
+            Hint2 = hint2;
+            Hint3 = hint3;
         }
     }
 }

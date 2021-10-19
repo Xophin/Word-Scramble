@@ -36,12 +36,13 @@ namespace Word_Scramble
             this.lblScrambledWord = new System.Windows.Forms.Label();
             this.btnStartScramble = new System.Windows.Forms.Button();
             this.lable = new System.Windows.Forms.Label();
-            this.lblHint1 = new System.Windows.Forms.Label();
-            this.lblHint2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblHint3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnGetHint = new System.Windows.Forms.Button();
+            this.btnListEditor = new System.Windows.Forms.Button();
+            this.txtHint1 = new System.Windows.Forms.TextBox();
+            this.txtHint2 = new System.Windows.Forms.TextBox();
+            this.txtHint3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCheck
@@ -93,7 +94,7 @@ namespace Word_Scramble
             this.btnStartScramble.Name = "btnStartScramble";
             this.btnStartScramble.Size = new System.Drawing.Size(73, 38);
             this.btnStartScramble.TabIndex = 5;
-            this.btnStartScramble.Text = "Get Scramble";
+            this.btnStartScramble.Text = "New Scramble";
             this.btnStartScramble.UseVisualStyleBackColor = true;
             this.btnStartScramble.Click += new System.EventHandler(this.btnStartScramble_Click);
             // 
@@ -106,22 +107,6 @@ namespace Word_Scramble
             this.lable.TabIndex = 6;
             this.lable.Text = "Hint 1:";
             // 
-            // lblHint1
-            // 
-            this.lblHint1.AutoSize = true;
-            this.lblHint1.Location = new System.Drawing.Point(63, 31);
-            this.lblHint1.Name = "lblHint1";
-            this.lblHint1.Size = new System.Drawing.Size(0, 13);
-            this.lblHint1.TabIndex = 7;
-            // 
-            // lblHint2
-            // 
-            this.lblHint2.AutoSize = true;
-            this.lblHint2.Location = new System.Drawing.Point(63, 55);
-            this.lblHint2.Name = "lblHint2";
-            this.lblHint2.Size = new System.Drawing.Size(0, 13);
-            this.lblHint2.TabIndex = 9;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -130,14 +115,6 @@ namespace Word_Scramble
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Hint 2:";
-            // 
-            // lblHint3
-            // 
-            this.lblHint3.AutoSize = true;
-            this.lblHint3.Location = new System.Drawing.Point(63, 85);
-            this.lblHint3.Name = "lblHint3";
-            this.lblHint3.Size = new System.Drawing.Size(0, 13);
-            this.lblHint3.TabIndex = 11;
             // 
             // label4
             // 
@@ -156,18 +133,51 @@ namespace Word_Scramble
             this.btnGetHint.TabIndex = 12;
             this.btnGetHint.Text = "Get Hint";
             this.btnGetHint.UseVisualStyleBackColor = true;
+            this.btnGetHint.Click += new System.EventHandler(this.btnGetHint_Click);
+            // 
+            // btnListEditor
+            // 
+            this.btnListEditor.Location = new System.Drawing.Point(14, 187);
+            this.btnListEditor.Name = "btnListEditor";
+            this.btnListEditor.Size = new System.Drawing.Size(73, 38);
+            this.btnListEditor.TabIndex = 13;
+            this.btnListEditor.Text = "List Editor";
+            this.btnListEditor.UseVisualStyleBackColor = true;
+            this.btnListEditor.Click += new System.EventHandler(this.btnListEditor_Click);
+            // 
+            // txtHint1
+            // 
+            this.txtHint1.Location = new System.Drawing.Point(63, 25);
+            this.txtHint1.Name = "txtHint1";
+            this.txtHint1.Size = new System.Drawing.Size(177, 20);
+            this.txtHint1.TabIndex = 14;
+            // 
+            // txtHint2
+            // 
+            this.txtHint2.Location = new System.Drawing.Point(63, 55);
+            this.txtHint2.Name = "txtHint2";
+            this.txtHint2.Size = new System.Drawing.Size(177, 20);
+            this.txtHint2.TabIndex = 15;
+            // 
+            // txtHint3
+            // 
+            this.txtHint3.Location = new System.Drawing.Point(64, 82);
+            this.txtHint3.Name = "txtHint3";
+            this.txtHint3.Size = new System.Drawing.Size(177, 20);
+            this.txtHint3.TabIndex = 16;
             // 
             // frmScrambleSolve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 193);
+            this.ClientSize = new System.Drawing.Size(253, 267);
+            this.Controls.Add(this.txtHint3);
+            this.Controls.Add(this.txtHint2);
+            this.Controls.Add(this.txtHint1);
+            this.Controls.Add(this.btnListEditor);
             this.Controls.Add(this.btnGetHint);
-            this.Controls.Add(this.lblHint3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.lblHint2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.lblHint1);
             this.Controls.Add(this.lable);
             this.Controls.Add(this.btnStartScramble);
             this.Controls.Add(this.lblScrambledWord);
@@ -192,12 +202,13 @@ namespace Word_Scramble
         private System.Windows.Forms.Label lblScrambledWord;
         private System.Windows.Forms.Button btnStartScramble;
         private System.Windows.Forms.Label lable;
-        private System.Windows.Forms.Label lblHint1;
-        private System.Windows.Forms.Label lblHint2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblHint3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnGetHint;
+        private System.Windows.Forms.Button btnListEditor;
+        private System.Windows.Forms.TextBox txtHint1;
+        private System.Windows.Forms.TextBox txtHint2;
+        private System.Windows.Forms.TextBox txtHint3;
     }
 }
 
