@@ -13,7 +13,8 @@ namespace Word_Scramble
     public partial class frmScrambleSolve : Form
     {
         // List made up of selected Lists
-        List<Prompt> lstSelectedLists = new List<Prompt>();
+        // what was I doing here? Change later
+        List<Word> lstSelectedLists = new List<Word>();
 
         Random random = new Random();
         String strOriginalWord = "";
@@ -55,7 +56,7 @@ namespace Word_Scramble
                     // Pick a random word from the List
                     intSelectedWordIndex = random.Next(-1, intWordListLength);
 
-                    strOriginalWord = lstSelectedLists[intSelectedWordIndex].Original;
+                    strOriginalWord = lstSelectedLists[intSelectedWordIndex].strWord;
 
                     // Check string length
                     if (strOriginalWord.Length > 0)

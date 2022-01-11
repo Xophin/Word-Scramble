@@ -17,21 +17,21 @@ namespace Word_Scramble
          */
 
         // Default lists!
-        List<Prompt> lstDefault = new List<Prompt>();
-        List<Prompt> lstFarm = new List<Prompt>();
+        List<Word> lstDefault = new List<Word>();
+        List<Word> lstFarm = new List<Word>();
 
         public ListEditor()
         {
             InitializeComponent();
 
             // DefaultList stuff
-            Prompt Moon = new Prompt("Moon", "Orbits the Earth");
-            Prompt Soon = new Prompt("Soon", "In or after a short time.", "If its followed by (TM) you know its not happening anytime ____.");
-            Prompt Loom = new Prompt("Loom", "An apparatus for making fabric by weaving yarn or thread.", "Weaver and their ____.");
-            Prompt Craft = new Prompt("Craft", "The act of creating something.");
-            Prompt Mine = new Prompt("Mine", "Digging in the ground for resources such as coal.", "It's not yours its ____.");
-            Prompt Town = new Prompt("Town", "Larger than a village, smaller than a city.", "Just a small ____ girl Livin' in a lonely world");
-            Prompt Cute = new Prompt("Cute", "attractive in a pretty or endearing way.", "As ____ as a kitten.");
+            Word Moon = new Word("Moon", "Orbits the Earth");
+            Word Soon = new Word("Soon", "In or after a short time.", "If its followed by (TM) you know its not happening anytime ____.");
+            Word Loom = new Word("Loom", "An apparatus for making fabric by weaving yarn or thread.", "Weaver and their ____.");
+            Word Craft = new Word("Craft", "The act of creating something.");
+            Word Mine = new Word("Mine", "Digging in the ground for resources such as coal.", "It's not yours its ____.");
+            Word Town = new Word("Town", "Larger than a village, smaller than a city.", "Just a small ____ girl Livin' in a lonely world");
+            Word Cute = new Word("Cute", "attractive in a pretty or endearing way.", "As ____ as a kitten.");
 
             // Add prompts
             lstDefault.Add(Moon);
@@ -43,16 +43,16 @@ namespace Word_Scramble
             lstDefault.Add(Cute);
 
             // FarmList stuff
-            Prompt Barn = new Prompt("Barn", "A large building for animal housing or storage.");
-            Prompt Coop = new Prompt("Coop", "A small building for housing poultry.", "When built freestanding, often has a method of closing it to keep predators from getting in.");
-            Prompt Pasture = new Prompt("Pasture", "Outdoor pen with grass", "Land for grazing animals.");
-            Prompt Stall = new Prompt("Stall", "An individual compartment for an animal in a stable or barn.");
-            Prompt Hay = new Prompt("Hay", "Animal feed made from dried grass.", "Comes in bales.");
-            Prompt Corn = new Prompt("Corn", "Grows on a stalk, commonly depicted as yellow.", "Starred in the horror movie Children of the ____");
-            Prompt Cow = new Prompt("Cow", "Bovine that can be raised for milk or meat or both.", "Moo");
-            Prompt Chicken = new Prompt("Chicken", "Poultry raised for meat or eggs.", "Known for being Kentucky Fried.", "Cluck");
-            Prompt Sheep = new Prompt("Sheep", "Ovine raised for wool, meat, and/or milk.", "Has lambs, needs to be sheered.", "Baa");
-            Prompt Horse = new Prompt("Horse", "The noble Equine, raised for running or working.", "Neigh");
+            Word Barn = new Word("Barn", "A large building for animal housing or storage.");
+            Word Coop = new Word("Coop", "A small building for housing poultry.", "When built freestanding, often has a method of closing it to keep predators from getting in.");
+            Word Pasture = new Word("Pasture", "Outdoor pen with grass", "Land for grazing animals.");
+            Word Stall = new Word("Stall", "An individual compartment for an animal in a stable or barn.");
+            Word Hay = new Word("Hay", "Animal feed made from dried grass.", "Comes in bales.");
+            Word Corn = new Word("Corn", "Grows on a stalk, commonly depicted as yellow.", "Starred in the horror movie Children of the ____");
+            Word Cow = new Word("Cow", "Bovine that can be raised for milk or meat or both.", "Moo");
+            Word Chicken = new Word("Chicken", "Poultry raised for meat or eggs.", "Known for being Kentucky Fried.", "Cluck");
+            Word Sheep = new Word("Sheep", "Ovine raised for wool, meat, milk, or some combination of all three.", "Has lambs, needs to be sheared.", "Baa");
+            Word Horse = new Word("Horse", "Equine raised for running or working.", "Neigh");
 
             // Add prompts
             lstFarm.Add(Barn);
@@ -69,8 +69,13 @@ namespace Word_Scramble
 
         private void frmListSelector_Load(object sender, EventArgs e)
         {
-            clbAvailableLists.Items.Add(new ListItem<List<Prompt>>("Default", lstDefault), true);
-            clbAvailableLists.Items.Add(new ListItem<List<Prompt>>("Farm", lstFarm), false);
+            clbAvailableLists.Items.Add(new ListItem<List<Word>>("Default", lstDefault), true);
+            clbAvailableLists.Items.Add(new ListItem<List<Word>>("Farm", lstFarm), false);
+
+        }
+
+        private void btnAddNewList_Click(object sender, EventArgs e)
+        {
 
         }
     }

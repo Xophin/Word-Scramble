@@ -47,6 +47,8 @@ namespace Word_Scramble
             // 
             // btnCheck
             // 
+            this.btnCheck.AccessibleDescription = "Checks the user\'s imputted answer to see if it is correct.";
+            this.btnCheck.AccessibleName = "Check Answer";
             this.btnCheck.Location = new System.Drawing.Point(172, 143);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(73, 38);
@@ -73,6 +75,8 @@ namespace Word_Scramble
             // 
             // label2
             // 
+            this.label2.AccessibleDescription = "The label that appears before the word to solve.";
+            this.label2.AccessibleName = "Word to Solve label";
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
@@ -82,6 +86,9 @@ namespace Word_Scramble
             // 
             // lblScrambledWord
             // 
+            this.lblScrambledWord.AccessibleDescription = "This is where the word to solve pops up, I should change this to be the actual sc" +
+    "rambled word.";
+            this.lblScrambledWord.AccessibleName = "The scrambled word.";
             this.lblScrambledWord.AutoSize = true;
             this.lblScrambledWord.Location = new System.Drawing.Point(96, 9);
             this.lblScrambledWord.Name = "lblScrambledWord";
@@ -90,6 +97,8 @@ namespace Word_Scramble
             // 
             // btnStartScramble
             // 
+            this.btnStartScramble.AccessibleDescription = "Gives the user a new word to unscramble.";
+            this.btnStartScramble.AccessibleName = "New Scramble";
             this.btnStartScramble.Location = new System.Drawing.Point(14, 143);
             this.btnStartScramble.Name = "btnStartScramble";
             this.btnStartScramble.Size = new System.Drawing.Size(73, 38);
@@ -127,6 +136,8 @@ namespace Word_Scramble
             // 
             // btnGetHint
             // 
+            this.btnGetHint.AccessibleDescription = "Reveals one of the hints for a scrambled word.";
+            this.btnGetHint.AccessibleName = "Get Hint";
             this.btnGetHint.Location = new System.Drawing.Point(93, 143);
             this.btnGetHint.Name = "btnGetHint";
             this.btnGetHint.Size = new System.Drawing.Size(73, 38);
@@ -147,6 +158,7 @@ namespace Word_Scramble
             // 
             // txtHint1
             // 
+            this.txtHint1.AccessibleName = "Hint 1 Description box";
             this.txtHint1.Location = new System.Drawing.Point(63, 25);
             this.txtHint1.Name = "txtHint1";
             this.txtHint1.Size = new System.Drawing.Size(177, 20);
@@ -168,6 +180,9 @@ namespace Word_Scramble
             // 
             // frmScrambleSolve
             // 
+            this.AccessibleDescription = "The screen for solving the scrambled word, viewing the hints, and checking the an" +
+    "swer.";
+            this.AccessibleName = "Scramble Solve.";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(253, 267);

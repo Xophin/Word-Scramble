@@ -61,7 +61,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Prompt.cs" />
+    <Compile Include="Word.cs" />
     <EmbeddedResource Include="ListEditor.resx">
       <DependentUpon>ListEditor.cs</DependentUpon>
     </EmbeddedResource>
