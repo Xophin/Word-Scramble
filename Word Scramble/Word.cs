@@ -14,7 +14,6 @@ namespace Word_Scramble
         // hints are being turned into a list of strings for flexibility.
         public List<string> lstHints { get; set; } = new List<string>();
         
-
         // Constructors
         public Word()
         {
@@ -29,6 +28,23 @@ namespace Word_Scramble
         public Word(string original, string hint1)
         {
             strWord = original;
+            lstHints.Add(hint1);
         }
+
+        public Word(string original, string hint1, string hint2)
+        {
+            strWord = original;
+            lstHints.Add(hint1);
+            lstHints.Add(hint2);
+        }
+
+        public Word(string original, string hint1, string hint2, string hint3)
+        {
+            strWord = original;
+            lstHints.Add(hint1);
+            lstHints.Add(hint2);
+            lstHints.Add(hint3);
+        }
+
     }
 }

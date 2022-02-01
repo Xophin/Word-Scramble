@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,15 @@ namespace Word_Scramble
     public partial class ListEditor : Form
     {
         /* This form will handle adding, selecting, deleting, and editing lists.
-         * It will take lists selected to go into rotation and merge them into one lists which gets sent back to ScrambleSolve.
+         * It will take lists selected to go into rotation and merge them into one liss which gets sent back to ScrambleSolve.
          */
 
         // Default lists!
         List<Word> lstDefault = new List<Word>();
         List<Word> lstFarm = new List<Word>();
+
+        WordList wlAvailable = new WordList();
+        WordList wlInUse = new WordList();
 
         public ListEditor()
         {
@@ -71,12 +75,78 @@ namespace Word_Scramble
         {
             clbAvailableLists.Items.Add(new ListItem<List<Word>>("Default", lstDefault), true);
             clbAvailableLists.Items.Add(new ListItem<List<Word>>("Farm", lstFarm), false);
-
         }
 
         private void btnAddNewList_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // using the code from microsoft's documentation
+                var fileContent = string.Empty;
+                var filePath = string.Empty;
+                
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    // this is clearly for Windows file directory, would probably need to do a check for what OS system then a case to open the corresponding file directory for user's os.
+                    openFileDialog.InitialDirectory = "c:\\";
+                    // creating default filter for which files appear.
+                    openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                    openFileDialog.FilterIndex = 2;
+                    openFileDialog.RestoreDirectory = true;
 
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Get the path of the specified file
+                        filePath = openFileDialog.FileName;
+                        //Read the contents of the file into a stream
+                        var fileStream = openFileDialog.OpenFile();
+
+                        using (StreamReader reader = new StreamReader(fileStream))
+                        {
+                            fileContent = reader.ReadToEnd();
+                        }
+                    }
+                }
+                MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
+                // Call ImportList information here to turn the newly imported a WordList with Words.
+                ImportList(filePath, fileContent);
+            }
+            catch { }
         }
+
+        private void ImportList(string filePath, string fileContent)
+        {
+            try
+            {
+                string strListName = string.Empty;
+                List<Word> NewWordList = new List<Word>();
+
+                // Get name of list from FileName
+                strListName = Path.GetFileName(filePath);
+
+                // Turn Contents from File into WordList with Words
+                using (StringReader reader = new StringReader(fileContent))
+                {
+                    string line;
+                    while((line = reader.ReadLine()) != null)
+                    {
+                        // pull apart the line to seperate Word from Hints.
+                        // thank you documentation and google for pointing me at said documentation.
+                        string[] SplitWord = line.Split('|');
+
+                        // This works for a word with a Single hint, need to refine later.
+                        Word NewWord = new Word(SplitWord[0], SplitWord[1]);
+
+                        // Add the new word to the NewList
+                        NewWordList.Add(NewWord);
+                    }
+                }
+
+                wlAvailable.lstWordList.Add(NewWordList);
+               
+            }
+            catch { }
+        }
+
     }
 }

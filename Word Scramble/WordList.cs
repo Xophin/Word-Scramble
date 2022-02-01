@@ -9,7 +9,7 @@ namespace Word_Scramble
     class WordList
     {
         public string strListName { get; set; }
-        public List<Word> lstWordList { get; set; } = new List<Word>();
+        public List<List<Word>> lstWordList { get; set; } = new List<List<Word>>();
 
     }
 }
