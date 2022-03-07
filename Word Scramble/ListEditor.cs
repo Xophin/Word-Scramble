@@ -110,6 +110,7 @@ namespace Word_Scramble
                 MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
                 // Call ImportList information here to turn the newly imported a WordList with Words.
                 ImportList(filePath, fileContent);
+
             }
             catch { }
         }
@@ -120,6 +121,7 @@ namespace Word_Scramble
             {
                 string strListName = string.Empty;
                 List<Word> NewWordList = new List<Word>();
+                string strTidyListName = string.Empty;
 
                 // Get name of list from FileName
                 strListName = Path.GetFileName(filePath);
@@ -143,10 +145,31 @@ namespace Word_Scramble
                 }
 
                 wlAvailable.lstWordList.Add(NewWordList);
-               
+
+                // Tidy up the list name
+                string[] SplitTitle = strListName.Split('.');
+                strTidyListName = SplitTitle[0];
+
+                // add new wordlist to the checked list box of available lists
+                clbAvailableLists.BeginUpdate();
+                clbAvailableLists.Items.Add(new ListItem<List<Word>>(strTidyListName, NewWordList), false);
+                clbAvailableLists.EndUpdate();
+
             }
             catch { }
         }
 
+        private void btnAddList_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // review SmidgeFarm listbox movements
+                // WordList exists as a ListItem
+
+
+            }
+            catch { }
+
+        }
     }
 }

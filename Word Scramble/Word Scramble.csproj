@@ -53,6 +53,12 @@
       <DependentUpon>ListEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="ListItem.cs" />
+    <Compile Include="main menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main menu.Designer.cs">
+      <DependentUpon>main menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScrambleSolve.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     <Compile Include="WordList.cs" />
     <EmbeddedResource Include="ListEditor.resx">
       <DependentUpon>ListEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main menu.resx">
+      <DependentUpon>main menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScrambleSolve.resx">
       <DependentUpon>ScrambleSolve.cs</DependentUpon>

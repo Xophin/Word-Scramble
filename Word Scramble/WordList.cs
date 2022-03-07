@@ -8,6 +8,7 @@ namespace Word_Scramble
 {
     class WordList
     {
+        // This stores a list of Words.
         public string strListName { get; set; }
         public List<List<Word>> lstWordList { get; set; } = new List<List<Word>>();
 

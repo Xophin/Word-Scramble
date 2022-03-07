@@ -8,6 +8,8 @@ namespace Word_Scramble
 {
     public class Word
     {
+        // This stores an individual word and its hints as a Word.
+
         // auto implmented properties
         public string strWord { get; set; }
 

@@ -8,6 +8,7 @@ namespace Word_Scramble
 {
     public class ListItem<ItemType>
     {
+        // Allows for a wordlist to be displayed in a CheckBox
         public string DisplayText { get; set; }
         public ItemType Value { get; set; }
 
