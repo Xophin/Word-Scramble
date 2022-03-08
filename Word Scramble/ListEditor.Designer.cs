@@ -31,7 +31,7 @@ namespace Word_Scramble
         {
             this.clbAvailableLists = new System.Windows.Forms.CheckedListBox();
             this.btnAddNewList = new System.Windows.Forms.Button();
-            this.clbListsInPool = new System.Windows.Forms.CheckedListBox();
+            this.clbSelectedLists = new System.Windows.Forms.CheckedListBox();
             this.btnAddList = new System.Windows.Forms.Button();
             this.btnRemoveList = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -56,21 +56,21 @@ namespace Word_Scramble
             this.btnAddNewList.AccessibleName = "Add List From Text";
             this.btnAddNewList.Location = new System.Drawing.Point(14, 224);
             this.btnAddNewList.Name = "btnAddNewList";
-            this.btnAddNewList.Size = new System.Drawing.Size(71, 40);
+            this.btnAddNewList.Size = new System.Drawing.Size(71, 34);
             this.btnAddNewList.TabIndex = 2;
             this.btnAddNewList.Text = "Add List From Text File";
             this.btnAddNewList.UseVisualStyleBackColor = true;
             this.btnAddNewList.Click += new System.EventHandler(this.btnAddNewList_Click);
             // 
-            // clbListsInPool
+            // clbSelectedLists
             // 
-            this.clbListsInPool.AccessibleDescription = "Shows the lists that have been selected to show up in the word scramble.";
-            this.clbListsInPool.AccessibleName = "Lits in use selected list box.";
-            this.clbListsInPool.FormattingEnabled = true;
-            this.clbListsInPool.Location = new System.Drawing.Point(306, 31);
-            this.clbListsInPool.Name = "clbListsInPool";
-            this.clbListsInPool.Size = new System.Drawing.Size(193, 184);
-            this.clbListsInPool.TabIndex = 3;
+            this.clbSelectedLists.AccessibleDescription = "Shows the lists that have been selected to show up in the word scramble.";
+            this.clbSelectedLists.AccessibleName = "Lits in use selected list box.";
+            this.clbSelectedLists.FormattingEnabled = true;
+            this.clbSelectedLists.Location = new System.Drawing.Point(306, 31);
+            this.clbSelectedLists.Name = "clbSelectedLists";
+            this.clbSelectedLists.Size = new System.Drawing.Size(193, 184);
+            this.clbSelectedLists.TabIndex = 3;
             // 
             // btnAddList
             // 
@@ -94,6 +94,7 @@ namespace Word_Scramble
             this.btnRemoveList.TabIndex = 5;
             this.btnRemoveList.Text = "Remove List";
             this.btnRemoveList.UseVisualStyleBackColor = true;
+            this.btnRemoveList.Click += new System.EventHandler(this.btnRemoveList_Click);
             // 
             // button3
             // 
@@ -136,7 +137,7 @@ namespace Word_Scramble
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnRemoveList);
             this.Controls.Add(this.btnAddList);
-            this.Controls.Add(this.clbListsInPool);
+            this.Controls.Add(this.clbSelectedLists);
             this.Controls.Add(this.btnAddNewList);
             this.Controls.Add(this.clbAvailableLists);
             this.Name = "ListEditor";
@@ -151,7 +152,7 @@ namespace Word_Scramble
 
         private System.Windows.Forms.CheckedListBox clbAvailableLists;
         private System.Windows.Forms.Button btnAddNewList;
-        private System.Windows.Forms.CheckedListBox clbListsInPool;
+        private System.Windows.Forms.CheckedListBox clbSelectedLists;
         private System.Windows.Forms.Button btnAddList;
         private System.Windows.Forms.Button btnRemoveList;
         private System.Windows.Forms.Button button3;

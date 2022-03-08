@@ -16,7 +16,7 @@ namespace Word_Scramble
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmScrambleSolve());
+            Application.Run(new frmMainMenu());
         }
     }
 }

@@ -21,8 +21,9 @@ namespace Word_Scramble
         List<Word> lstDefault = new List<Word>();
         List<Word> lstFarm = new List<Word>();
 
+        // These carry the selected Prompts to other Forms.
         WordList wlAvailable = new WordList();
-        WordList wlInUse = new WordList();
+        WordList wlSelected = new WordList();
 
         public ListEditor()
         {
@@ -73,8 +74,10 @@ namespace Word_Scramble
 
         private void frmListSelector_Load(object sender, EventArgs e)
         {
+            // Load the box.
             clbAvailableLists.Items.Add(new ListItem<List<Word>>("Default", lstDefault), true);
             clbAvailableLists.Items.Add(new ListItem<List<Word>>("Farm", lstFarm), false);
+            clbAvailableLists.SelectedIndex = -1;
         }
 
         private void btnAddNewList_Click(object sender, EventArgs e)
@@ -163,13 +166,41 @@ namespace Word_Scramble
         {
             try
             {
-                // review SmidgeFarm listbox movements
-                // WordList exists as a ListItem
+                // Move a PromptList from Available to Selected.
+                // PromptList exists as a ListItem
+                ListItem<List<Word>> currentPromptList = clbAvailableLists.SelectedItem as ListItem<List<Word>>;
 
+                clbSelectedLists.BeginUpdate();
+                clbSelectedLists.Items.Add(currentPromptList);
+                clbSelectedLists.EndUpdate();
+
+                // Remove WordList from Available
+                clbAvailableLists.BeginUpdate();
+                clbAvailableLists.Items.Remove(clbAvailableLists.SelectedItem);
+                clbAvailableLists.EndUpdate();
+
+                // Add PromptList to Selected WordList
+                wlSelected.lstWordList.Add(currentPromptList.Value);
 
             }
             catch { }
 
+        }
+
+        private void btnRemoveList_Click(object sender, EventArgs e)
+        {
+            // Move a WordList from Slected to Available.
+            // WordList exists as a ListItem
+            ListItem<List<Word>> currentWordList = clbSelectedLists.SelectedItem as ListItem<List<Word>>;
+
+            clbAvailableLists.BeginUpdate();
+            clbAvailableLists.Items.Add(currentWordList);
+            clbAvailableLists.EndUpdate();
+
+            // Remove WordList from Selected
+            clbSelectedLists.BeginUpdate();
+            clbSelectedLists.Items.Remove(clbAvailableLists.SelectedItem);
+            clbSelectedLists.EndUpdate();
         }
     }
 }
