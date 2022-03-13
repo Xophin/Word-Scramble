@@ -1,7 +1,7 @@
 ﻿
 namespace Word_Scramble
 {
-    partial class frmScrambleSolve
+    partial class ScrambleSolve
     {
         /// <summary>
         /// Required designer variable.

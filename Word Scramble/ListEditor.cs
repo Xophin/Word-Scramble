@@ -21,10 +21,6 @@ namespace Word_Scramble
         List<Word> lstDefault = new List<Word>();
         List<Word> lstFarm = new List<Word>();
 
-        // These carry the selected Prompts to other Forms.
-        WordList wlAvailable = new WordList();
-        WordList wlSelected = new WordList();
-
         public ListEditor()
         {
             InitializeComponent();
@@ -110,7 +106,7 @@ namespace Word_Scramble
                         }
                     }
                 }
-                MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
+                // MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
                 // Call ImportList information here to turn the newly imported a WordList with Words.
                 ImportList(filePath, fileContent);
 
@@ -147,7 +143,7 @@ namespace Word_Scramble
                     }
                 }
 
-                wlAvailable.lstWordList.Add(NewWordList);
+                Globals.wlAvailable.lstWordList.Add(NewWordList);
 
                 // Tidy up the list name
                 string[] SplitTitle = strListName.Split('.');
@@ -166,21 +162,42 @@ namespace Word_Scramble
         {
             try
             {
-                // Move a PromptList from Available to Selected.
+                // Move a checked PromptList from Available to Selected.
                 // PromptList exists as a ListItem
-                ListItem<List<Word>> currentPromptList = clbAvailableLists.SelectedItem as ListItem<List<Word>>;
+                if (clbAvailableLists.CheckedItems.Count != 0)
+                {
+                    // Get the checked items as a List Item
+                    // loop through to transfer all the checked Lists.
 
-                clbSelectedLists.BeginUpdate();
-                clbSelectedLists.Items.Add(currentPromptList);
-                clbSelectedLists.EndUpdate();
+                    // index for stepping through initial list.
+                    int i;
+                    // step through the Checked List Box checking for checked items.
+                    for (i = 0; i <= (clbAvailableLists.Items.Count-1); i++)
+                    {
+                        // If Item at index is Checked, transfer it over.
+                        if(clbAvailableLists.GetItemChecked(i))
+                        {
+                            ListItem<List<Word>> currentPromptList = clbAvailableLists.Items[i] as ListItem<List<Word>>;
+                            clbSelectedLists.BeginUpdate();
+                            clbSelectedLists.Items.Add(currentPromptList);
+                            clbSelectedLists.EndUpdate();
 
-                // Remove WordList from Available
-                clbAvailableLists.BeginUpdate();
-                clbAvailableLists.Items.Remove(clbAvailableLists.SelectedItem);
-                clbAvailableLists.EndUpdate();
+                            // Add PromptList to Selected WordList
+                            Globals.wlSelected.lstWordList.Add(currentPromptList.Value);
+                        }
+                    }
 
-                // Add PromptList to Selected WordList
-                wlSelected.lstWordList.Add(currentPromptList.Value);
+                    // Removes checked items after transfering.
+                    // So much simpler than my plan of using a list.
+                    while (clbAvailableLists.CheckedItems.Count > 0)
+                    {
+                        clbAvailableLists.Items.RemoveAt(clbAvailableLists.CheckedIndices[0]);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please check a list to move.", "Error");
+                }
 
             }
             catch { }
@@ -189,18 +206,81 @@ namespace Word_Scramble
 
         private void btnRemoveList_Click(object sender, EventArgs e)
         {
-            // Move a WordList from Slected to Available.
-            // WordList exists as a ListItem
-            ListItem<List<Word>> currentWordList = clbSelectedLists.SelectedItem as ListItem<List<Word>>;
+            try
+            {
+                // Move a checked PromptList from Selected to Available.
+                // PromptList exists as a ListItem
+                if (clbSelectedLists.CheckedItems.Count != 0)
+                {
+                    // Get the checked items as a List Item
+                    // loop through to transfer all the checked Lists.
+                    int i;
+                    // ListItem<List<Word>> currentPromptList = clbSelectedLists.SelectedItem as ListItem<List<Word>>;
+                    // step through the Checked List Box checking for checked items.
+                    for (i = 0; i <= (clbSelectedLists.Items.Count - 1); i++)
+                    {
+                        // If Item at index is Checked, transfer it over.
+                        if (clbSelectedLists.GetItemChecked(i))
+                        {
+                            ListItem<List<Word>> currentPromptList = clbSelectedLists.Items[i] as ListItem<List<Word>>;
+                            // Add WordList to list of available wordlists.
+                            clbAvailableLists.BeginUpdate();
+                            clbAvailableLists.Items.Add(currentPromptList);
+                            clbAvailableLists.EndUpdate();
 
-            clbAvailableLists.BeginUpdate();
-            clbAvailableLists.Items.Add(currentWordList);
-            clbAvailableLists.EndUpdate();
+                            // Remove PromptList to Selected WordList
+                            Globals.wlSelected.lstWordList.Remove(currentPromptList.Value);
+                        }
+                    }
+                    // Removes checked items after transfering.
+                    while (clbSelectedLists.CheckedItems.Count > 0)
+                    {
+                        clbSelectedLists.Items.RemoveAt(clbSelectedLists.CheckedIndices[0]);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please check a list to move.", "Error");
+                }
 
-            // Remove WordList from Selected
-            clbSelectedLists.BeginUpdate();
-            clbSelectedLists.Items.Remove(clbAvailableLists.SelectedItem);
-            clbSelectedLists.EndUpdate();
+            }
+            catch { }
+        }
+
+        private void btnCheckAllAvailable_Click(object sender, EventArgs e)
+        {
+            // check all boxes in clbAvailable
+            for (int i = 0; i < clbAvailableLists.Items.Count; i++)
+            {
+                clbAvailableLists.SetItemChecked(i, true);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // uncheck all boxes in clbAvailable
+            for (int i = 0; i < clbAvailableLists.Items.Count; i++)
+            {
+                clbAvailableLists.SetItemChecked(i, false);
+            }
+        }
+
+        private void btnCheckAllSelected_Click(object sender, EventArgs e)
+        {
+            // check all boxes in clbSelectedLists
+            for (int i = 0; i < clbSelectedLists.Items.Count; i++)
+            {
+                clbSelectedLists.SetItemChecked(i, true);
+            }
+        }
+
+        private void btnUncheckAllSelected_Click(object sender, EventArgs e)
+        {
+            // uncheck all boxes in clbSelectedLists
+            for (int i = 0; i < clbSelectedLists.Items.Count; i++)
+            {
+                clbSelectedLists.SetItemChecked(i, false);
+            }
         }
     }
 }

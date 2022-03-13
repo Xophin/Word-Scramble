@@ -29,37 +29,37 @@ namespace Word_Scramble
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnWordScramble = new System.Windows.Forms.Button();
+            this.btnListEditor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnWordScramble
             // 
-            this.button1.Location = new System.Drawing.Point(26, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 25);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Word Scramble";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnWordScramble.Location = new System.Drawing.Point(26, 17);
+            this.btnWordScramble.Name = "btnWordScramble";
+            this.btnWordScramble.Size = new System.Drawing.Size(163, 25);
+            this.btnWordScramble.TabIndex = 0;
+            this.btnWordScramble.Text = "Word Scramble";
+            this.btnWordScramble.UseVisualStyleBackColor = true;
+            this.btnWordScramble.Click += new System.EventHandler(this.btnWordScramble_Click);
             // 
-            // button2
+            // btnListEditor
             // 
-            this.button2.Location = new System.Drawing.Point(26, 48);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(163, 25);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "List Editor";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnListEditor.Location = new System.Drawing.Point(26, 48);
+            this.btnListEditor.Name = "btnListEditor";
+            this.btnListEditor.Size = new System.Drawing.Size(163, 25);
+            this.btnListEditor.TabIndex = 1;
+            this.btnListEditor.Text = "List Editor";
+            this.btnListEditor.UseVisualStyleBackColor = true;
+            this.btnListEditor.Click += new System.EventHandler(this.btnListEditor_Click);
             // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(224, 89);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnListEditor);
+            this.Controls.Add(this.btnWordScramble);
             this.Name = "frmMainMenu";
             this.Text = "Main Menu";
             this.ResumeLayout(false);
@@ -68,7 +68,7 @@ namespace Word_Scramble
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnWordScramble;
+        private System.Windows.Forms.Button btnListEditor;
     }
 }

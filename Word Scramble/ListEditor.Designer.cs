@@ -33,10 +33,13 @@ namespace Word_Scramble
             this.btnAddNewList = new System.Windows.Forms.Button();
             this.clbSelectedLists = new System.Windows.Forms.CheckedListBox();
             this.btnAddList = new System.Windows.Forms.Button();
-            this.btnRemoveList = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDeselectList = new System.Windows.Forms.Button();
             this.lblAvailableLists = new System.Windows.Forms.Label();
             this.lblSelectedLists = new System.Windows.Forms.Label();
+            this.btnCheckAllAvailable = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnUncheckAllSelected = new System.Windows.Forms.Button();
+            this.btnCheckAllSelected = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // clbAvailableLists
@@ -54,9 +57,9 @@ namespace Word_Scramble
             // 
             this.btnAddNewList.AccessibleDescription = "Allows the user to search their computer for a text file containing a list.";
             this.btnAddNewList.AccessibleName = "Add List From Text";
-            this.btnAddNewList.Location = new System.Drawing.Point(14, 224);
+            this.btnAddNewList.Location = new System.Drawing.Point(12, 273);
             this.btnAddNewList.Name = "btnAddNewList";
-            this.btnAddNewList.Size = new System.Drawing.Size(71, 34);
+            this.btnAddNewList.Size = new System.Drawing.Size(63, 34);
             this.btnAddNewList.TabIndex = 2;
             this.btnAddNewList.Text = "Add List From Text File";
             this.btnAddNewList.UseVisualStyleBackColor = true;
@@ -84,26 +87,17 @@ namespace Word_Scramble
             this.btnAddList.UseVisualStyleBackColor = true;
             this.btnAddList.Click += new System.EventHandler(this.btnAddList_Click);
             // 
-            // btnRemoveList
+            // btnDeselectList
             // 
-            this.btnRemoveList.AccessibleDescription = "Removes a selected list from the Lists in Use list box.";
-            this.btnRemoveList.AccessibleName = "Remove List";
-            this.btnRemoveList.Location = new System.Drawing.Point(211, 93);
-            this.btnRemoveList.Name = "btnRemoveList";
-            this.btnRemoveList.Size = new System.Drawing.Size(89, 25);
-            this.btnRemoveList.TabIndex = 5;
-            this.btnRemoveList.Text = "Remove List";
-            this.btnRemoveList.UseVisualStyleBackColor = true;
-            this.btnRemoveList.Click += new System.EventHandler(this.btnRemoveList_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(211, 124);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(89, 25);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDeselectList.AccessibleDescription = "Removes a selected list from the Lists in Use list box.";
+            this.btnDeselectList.AccessibleName = "Deselect List";
+            this.btnDeselectList.Location = new System.Drawing.Point(211, 93);
+            this.btnDeselectList.Name = "btnDeselectList";
+            this.btnDeselectList.Size = new System.Drawing.Size(89, 25);
+            this.btnDeselectList.TabIndex = 5;
+            this.btnDeselectList.Text = "Deselect List";
+            this.btnDeselectList.UseVisualStyleBackColor = true;
+            this.btnDeselectList.Click += new System.EventHandler(this.btnRemoveList_Click);
             // 
             // lblAvailableLists
             // 
@@ -124,6 +118,54 @@ namespace Word_Scramble
             this.lblSelectedLists.TabIndex = 8;
             this.lblSelectedLists.Text = "Selected Lists";
             // 
+            // btnCheckAllAvailable
+            // 
+            this.btnCheckAllAvailable.AccessibleDescription = "Allows user to check all checkboxes in Available Lists.";
+            this.btnCheckAllAvailable.AccessibleName = "Check All Available";
+            this.btnCheckAllAvailable.Location = new System.Drawing.Point(12, 221);
+            this.btnCheckAllAvailable.Name = "btnCheckAllAvailable";
+            this.btnCheckAllAvailable.Size = new System.Drawing.Size(83, 34);
+            this.btnCheckAllAvailable.TabIndex = 9;
+            this.btnCheckAllAvailable.Text = "Check All Lists";
+            this.btnCheckAllAvailable.UseVisualStyleBackColor = true;
+            this.btnCheckAllAvailable.Click += new System.EventHandler(this.btnCheckAllAvailable_Click);
+            // 
+            // button1
+            // 
+            this.button1.AccessibleDescription = "Allows user to uncheck all checkboxes in Available Lists.";
+            this.button1.AccessibleName = "Uncheck All Available";
+            this.button1.Location = new System.Drawing.Point(122, 221);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(83, 34);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Uncheck All Lists";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnUncheckAllSelected
+            // 
+            this.btnUncheckAllSelected.AccessibleDescription = "Allows user to uncheck all checkboxes in Selected Lists.";
+            this.btnUncheckAllSelected.AccessibleName = "Uncheck All Selected";
+            this.btnUncheckAllSelected.Location = new System.Drawing.Point(416, 221);
+            this.btnUncheckAllSelected.Name = "btnUncheckAllSelected";
+            this.btnUncheckAllSelected.Size = new System.Drawing.Size(83, 34);
+            this.btnUncheckAllSelected.TabIndex = 12;
+            this.btnUncheckAllSelected.Text = "Uncheck All Lists";
+            this.btnUncheckAllSelected.UseVisualStyleBackColor = true;
+            this.btnUncheckAllSelected.Click += new System.EventHandler(this.btnUncheckAllSelected_Click);
+            // 
+            // btnCheckAllSelected
+            // 
+            this.btnCheckAllSelected.AccessibleDescription = "Allows user to check all checkboxes in Selected Lists.";
+            this.btnCheckAllSelected.AccessibleName = "Check All Selected";
+            this.btnCheckAllSelected.Location = new System.Drawing.Point(306, 221);
+            this.btnCheckAllSelected.Name = "btnCheckAllSelected";
+            this.btnCheckAllSelected.Size = new System.Drawing.Size(83, 34);
+            this.btnCheckAllSelected.TabIndex = 11;
+            this.btnCheckAllSelected.Text = "Check All Lists";
+            this.btnCheckAllSelected.UseVisualStyleBackColor = true;
+            this.btnCheckAllSelected.Click += new System.EventHandler(this.btnCheckAllSelected_Click);
+            // 
             // ListEditor
             // 
             this.AccessibleDescription = "Allows user to select which lists they want to have words show up in the scramble" +
@@ -132,10 +174,13 @@ namespace Word_Scramble
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 319);
+            this.Controls.Add(this.btnUncheckAllSelected);
+            this.Controls.Add(this.btnCheckAllSelected);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCheckAllAvailable);
             this.Controls.Add(this.lblSelectedLists);
             this.Controls.Add(this.lblAvailableLists);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.btnRemoveList);
+            this.Controls.Add(this.btnDeselectList);
             this.Controls.Add(this.btnAddList);
             this.Controls.Add(this.clbSelectedLists);
             this.Controls.Add(this.btnAddNewList);
@@ -154,9 +199,12 @@ namespace Word_Scramble
         private System.Windows.Forms.Button btnAddNewList;
         private System.Windows.Forms.CheckedListBox clbSelectedLists;
         private System.Windows.Forms.Button btnAddList;
-        private System.Windows.Forms.Button btnRemoveList;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDeselectList;
         private System.Windows.Forms.Label lblAvailableLists;
         private System.Windows.Forms.Label lblSelectedLists;
+        private System.Windows.Forms.Button btnCheckAllAvailable;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUncheckAllSelected;
+        private System.Windows.Forms.Button btnCheckAllSelected;
     }
 }

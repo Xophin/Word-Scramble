@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Word_Scramble
 {
-    public partial class frmScrambleSolve : Form
+    public partial class ScrambleSolve : Form
     {
         // List made up of selected Lists
         // what was I doing here? Change later
@@ -22,7 +22,7 @@ namespace Word_Scramble
         // allows us to access the index in the selected list
         int intSelectedWordIndex = 0;
 
-        public frmScrambleSolve()
+        public ScrambleSolve()
         {
             InitializeComponent();
         }
@@ -144,7 +144,10 @@ namespace Word_Scramble
                 // Return the Scrambled word as a String.
                strScrambledWord = new string(chrScramble);
             }
-            catch (Exception es) { }
+            catch (Exception es) 
+            {
+                MessageBox.Show(es.Message);
+            }
 
             return strScrambledWord;
 

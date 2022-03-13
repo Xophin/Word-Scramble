@@ -17,12 +17,12 @@ namespace Word_Scramble
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnWordScramble_Click(object sender, EventArgs e)
         {
             try
             {
-                Form fScrambleSolve = new ListEditor();
-                fScrambleSolve.ShowDialog();
+                Form frmScrambleSolve = new ScrambleSolve();
+                frmScrambleSolve.ShowDialog();
             }
             catch (Exception es)
             {
@@ -30,7 +30,7 @@ namespace Word_Scramble
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnListEditor_Click(object sender, EventArgs e)
         {
             try
             {
