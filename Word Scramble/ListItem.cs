@@ -8,7 +8,7 @@ namespace Word_Scramble
 {
     public class ListItem<ItemType>
     {
-        // Holds a List of Words and a anme for that list
+        //Holds a List of Words and a anme for that list
         // Name of list == DisplayText, List == Value
         public string DisplayText { get; set; }
         public ItemType Value { get; set; }
