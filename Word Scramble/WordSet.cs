@@ -34,5 +34,11 @@ namespace Word_Scramble
             strListName = Name;
             lstWordList = WordList;
         }
+
+        // this should override DisplayName
+        public override string ToString()
+        {
+            return strListName.ToString();
+        }
     }
 }

@@ -10,10 +10,10 @@ namespace Word_Scramble
     {
         // The world travelling suitcase.
 
-        // wordlists selected for use in scrambler.
+        // WordSets selected for use in scrambler.
         public static WordSet wlSelected = new WordSet();
 
-        // wordlists that could be selected for use.
+        // WordSets that could be selected for use.
         public static WordSet wlAvailable = new WordSet();
 
     }
