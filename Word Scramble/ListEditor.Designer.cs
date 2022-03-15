@@ -29,7 +29,6 @@ namespace Word_Scramble
         /// </summary>
         private void InitializeComponent()
         {
-            this.clbAvailableLists = new System.Windows.Forms.CheckedListBox();
             this.btnAddNewList = new System.Windows.Forms.Button();
             this.clbSelectedLists = new System.Windows.Forms.CheckedListBox();
             this.btnAddList = new System.Windows.Forms.Button();
@@ -40,18 +39,9 @@ namespace Word_Scramble
             this.button1 = new System.Windows.Forms.Button();
             this.btnUncheckAllSelected = new System.Windows.Forms.Button();
             this.btnCheckAllSelected = new System.Windows.Forms.Button();
+            this.btnReturnToMain = new System.Windows.Forms.Button();
+            this.clbAvailableLists = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
-            // 
-            // clbAvailableLists
-            // 
-            this.clbAvailableLists.AccessibleDescription = "Shows all the lists that can be added to the list the prompts will be chosen from" +
-    ".";
-            this.clbAvailableLists.AccessibleName = "Available Lists list box";
-            this.clbAvailableLists.FormattingEnabled = true;
-            this.clbAvailableLists.Location = new System.Drawing.Point(12, 31);
-            this.clbAvailableLists.Name = "clbAvailableLists";
-            this.clbAvailableLists.Size = new System.Drawing.Size(193, 184);
-            this.clbAvailableLists.TabIndex = 0;
             // 
             // btnAddNewList
             // 
@@ -166,6 +156,26 @@ namespace Word_Scramble
             this.btnCheckAllSelected.UseVisualStyleBackColor = true;
             this.btnCheckAllSelected.Click += new System.EventHandler(this.btnCheckAllSelected_Click);
             // 
+            // btnReturnToMain
+            // 
+            this.btnReturnToMain.Location = new System.Drawing.Point(211, 273);
+            this.btnReturnToMain.Name = "btnReturnToMain";
+            this.btnReturnToMain.Size = new System.Drawing.Size(89, 34);
+            this.btnReturnToMain.TabIndex = 13;
+            this.btnReturnToMain.Text = "Return to Main Menu";
+            this.btnReturnToMain.UseVisualStyleBackColor = true;
+            // 
+            // clbAvailableLists
+            // 
+            this.clbAvailableLists.AccessibleDescription = "Shows all the lists that can be added to the list the prompts will be chosen from" +
+    ".";
+            this.clbAvailableLists.AccessibleName = "Available Lists list box";
+            this.clbAvailableLists.FormattingEnabled = true;
+            this.clbAvailableLists.Location = new System.Drawing.Point(12, 31);
+            this.clbAvailableLists.Name = "clbAvailableLists";
+            this.clbAvailableLists.Size = new System.Drawing.Size(193, 184);
+            this.clbAvailableLists.TabIndex = 0;
+            // 
             // ListEditor
             // 
             this.AccessibleDescription = "Allows user to select which lists they want to have words show up in the scramble" +
@@ -174,6 +184,7 @@ namespace Word_Scramble
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 319);
+            this.Controls.Add(this.btnReturnToMain);
             this.Controls.Add(this.btnUncheckAllSelected);
             this.Controls.Add(this.btnCheckAllSelected);
             this.Controls.Add(this.button1);
@@ -194,8 +205,6 @@ namespace Word_Scramble
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckedListBox clbAvailableLists;
         private System.Windows.Forms.Button btnAddNewList;
         private System.Windows.Forms.CheckedListBox clbSelectedLists;
         private System.Windows.Forms.Button btnAddList;
@@ -206,5 +215,7 @@ namespace Word_Scramble
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnUncheckAllSelected;
         private System.Windows.Forms.Button btnCheckAllSelected;
+        private System.Windows.Forms.Button btnReturnToMain;
+        private System.Windows.Forms.CheckedListBox clbAvailableLists;
     }
 }
